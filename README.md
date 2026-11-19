@@ -116,7 +116,6 @@ hybrid-radiograph-feature-fusion/
 ├── prepare_dataset.py            # Downloads Kermany dataset & creates stratified splits
 ├── train.py                      # Master training runner across all 6 configurations
 ├── generate_figures.py           # Publication-quality figure generation (300 DPI)
-├── hybrid_radiograph_feature_fusion.ipynb # End-to-end experiment pipeline notebook
 ├── requirements.txt              # Environment dependencies
 ├── .gitignore                    # Artifacts & data exclusions
 └── README.md                     # Documentation
@@ -124,7 +123,7 @@ hybrid-radiograph-feature-fusion/
 
 ---
 
-## Getting Started
+## Quickstart
 
 ### 1. Installation
 Clone the repository and install dependencies:
@@ -134,29 +133,21 @@ cd hybrid-radiograph-feature-fusion
 pip install -r requirements.txt
 ```
 
-### 2. Execution Modes
-
-#### Method A: Interactive Jupyter Pipeline
-Launch the end-to-end research notebook:
-```bash
-jupyter notebook hybrid_radiograph_feature_fusion.ipynb
-```
-The notebook executes the complete pipeline: downloads dataset shards, precomputes handcrafted features, trains all six hybrid configurations using PyTorch AMP, and plots comparison figures.
-
-#### Method B: Command-Line Pipeline
-Execute the modules sequentially from your terminal:
+### 2. Dataset Preparation
+Download Kermany chest radiograph shards and build the 1,500-sample balanced stratified split (70% Train, 15% Val, 15% Test):
 ```bash
 python prepare_dataset.py
 ```
-This downloads 1,500 radiographs (600 Normal, 900 Pneumonia) and constructs a stratified 70% Train / 15% Validation / 15% Test split in `data/chest_xray/`.
 
-#### 3. Run the benchmark experiments:
+### 3. Training & Benchmarking
+Run all six hybrid deep and handcrafted feature fusion experiments with mixed precision:
 ```bash
 python train.py
 ```
-This executes all 6 experimental runs, saves checkpoints to `outputs/checkpoints/`, and records metrics in `outputs/results.json`.
+Outputs model weights to `outputs/checkpoints/` and performance statistics to `outputs/results.json`.
 
-#### 4. Generate publication figures:
+### 4. Generate Visualizations
+Generate 300 DPI publication figures (ROC curves, confusion matrices, ablation comparisons, feature activations):
 ```bash
 python generate_figures.py
 ```
