@@ -116,7 +116,7 @@ hybrid-radiograph-feature-fusion/
 ├── prepare_dataset.py            # Downloads Kermany dataset & creates stratified splits
 ├── train.py                      # Master training runner across all 6 configurations
 ├── generate_figures.py           # Publication-quality figure generation (300 DPI)
-├── hybrid_radiograph_fusion_kaggle.ipynb  # Self-contained Kaggle GPU notebook
+├── hybrid_radiograph_feature_fusion.ipynb # End-to-end experiment pipeline notebook
 ├── requirements.txt              # Environment dependencies
 ├── .gitignore                    # Artifacts & data exclusions
 └── README.md                     # Documentation
@@ -126,23 +126,25 @@ hybrid-radiograph-feature-fusion/
 
 ## Getting Started
 
-### Option 1: Run on Kaggle (Recommended for GPU Acceleration)
-1. Open [Kaggle Kernels](https://www.kaggle.com/code).
-2. Click **New Notebook** -> **File** -> **Import Notebook**.
-3. Select `hybrid_radiograph_fusion_kaggle.ipynb`.
-4. Turn on the **GPU Accelerator** (`Settings` -> `Accelerator` -> `GPU P100` or `GPU T4`).
-5. Click **Run All**. The notebook will automatically download the dataset, precompute descriptors, train all 6 models with PyTorch AMP, generate publication figures, and create a `kaggle_outputs.zip` file for instant download.
-
-### Option 2: Run Locally
-
-#### 1. Clone the repository and install requirements:
+### 1. Installation
+Clone the repository and install dependencies:
 ```bash
 git clone https://github.com/Subhans1501/hybrid-radiograph-feature-fusion.git
 cd hybrid-radiograph-feature-fusion
 pip install -r requirements.txt
 ```
 
-#### 2. Download and prepare the dataset:
+### 2. Execution Modes
+
+#### Method A: Interactive Jupyter Pipeline
+Launch the end-to-end research notebook:
+```bash
+jupyter notebook hybrid_radiograph_feature_fusion.ipynb
+```
+The notebook executes the complete pipeline: downloads dataset shards, precomputes handcrafted features, trains all six hybrid configurations using PyTorch AMP, and plots comparison figures.
+
+#### Method B: Command-Line Pipeline
+Execute the modules sequentially from your terminal:
 ```bash
 python prepare_dataset.py
 ```
