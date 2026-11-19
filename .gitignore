@@ -1,0 +1,25 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Data and cached datasets
+data/
+*.parquet
+
+# Model checkpoints & outputs
+outputs/checkpoints/
+*.pth
+*.pt
+*.npz
+
+# Logs & Jupyter
+*.log
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# OS specific
+.DS_Store
+Thumbs.db
