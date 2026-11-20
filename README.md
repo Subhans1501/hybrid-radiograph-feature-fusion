@@ -155,6 +155,28 @@ Outputs high-resolution 300 DPI figures to `outputs/figures/`.
 
 ---
 
+## Benchmark Results (Held-Out Test Set, n = 225)
+
+| Experiment | Accuracy (%) | Precision (%) | Sensitivity (%) | Specificity (%) | F1-Score (%) | AUROC |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| `ConvNeXt-Tiny` (Pure Deep Baseline) | **94.22** | **98.41** | 91.85 | **97.78** | **95.02** | 0.9878 |
+| `ConvNeXt-Tiny` + Multi-Scale HOG (Projected Concat) | 93.33 | 96.15 | 92.59 | 94.44 | 94.34 | **0.9885** |
+| `ConvNeXt-Tiny` + Uniform LBP (Gated Cross-Modal) | 93.78 | 96.90 | 92.59 | 95.56 | 94.70 | 0.9869 |
+| `Swin-T` (Pure Deep Baseline) | 89.78 | 95.16 | 87.41 | 93.33 | 91.12 | 0.9843 |
+| `Swin-T` + 24-Kernel Gabor Bank (Projected Concat) | 92.89 | 94.07 | **94.07** | 91.11 | 94.07 | 0.9878 |
+| `Swin-T` + SIFT-BoVW TF-IDF (Token Attention + SE) | **93.78** | 96.18 | 93.33 | 94.44 | **94.74** | **0.9887** |
+
+- Fusing **SIFT-BoVW TF-IDF** with **Swin-T** via Cross-Modal Token Self-Attention + SE boosted test accuracy by **+4.00%** (`89.78%` $\to$ `93.78%`), sensitivity by **+5.92%** (`87.41%` $\to$ `93.33%`), and achieved the highest overall **AUROC (0.9887)**.
+- Fusing **24-Kernel Gabor Filter Bank** with **Swin-T** achieved the highest clinical sensitivity (**94.07%**).
+
+### Visual Analysis
+
+![ROC Curves](outputs/figures/fig5_roc_curves_comparison.png)
+![Confusion Matrices](outputs/figures/fig4_confusion_matrices_all.png)
+![t-SNE and Fusion Weights](outputs/figures/fig7_interpretability_tsne_and_gates.png)
+
+---
+
 ## Clinical Metrics Evaluated
 Every model is evaluated across comprehensive clinical diagnostics:
 - **Accuracy:** Overall correctly classified radiographs.
