@@ -2,6 +2,7 @@
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch 2.0+](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
+[![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow)](https://huggingface.co/subhan1501/hybrid-radiograph-feature-fusion)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 An end-to-end clinical computer vision framework benchmark investigating whether fusing classic multi-scale handcrafted descriptors (**HOG**, **Multi-Scale Uniform LBP**, **24-Kernel Gabor Filter Banks**, and **SIFT-BoVW with TF-IDF**) into modern deep neural backbones (**ConvNeXt-Tiny** and **Swin Transformer-T**) enhances classification performance, feature calibration, and interpretability on pediatric chest radiographs.
@@ -156,6 +157,8 @@ Outputs high-resolution 300 DPI figures to `outputs/figures/`.
 ---
 
 ## Benchmark Results (Held-Out Test Set, n = 225)
+
+Pretrained weights for all 6 configurations are hosted on Hugging Face Hub: **[`subhan1501/hybrid-radiograph-feature-fusion`](https://huggingface.co/subhan1501/hybrid-radiograph-feature-fusion)**.
 
 | Experiment | Accuracy (%) | Precision (%) | Sensitivity (%) | Specificity (%) | F1-Score (%) | AUROC |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
